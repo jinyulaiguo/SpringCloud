@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 eureka:
   instance:
@@ -7,7 +7,9 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     serviceUrl:
-      defaultZone: http://@eureka.user.name@:@eureka.user.password@@localhost:8080/eureka/
+      defaultZone: http://admin:admin@localhost:8081/eureka
+    registerWithEureka: true
+    fetchRegistry: false
 
 spring:
   application:
@@ -16,3 +18,5 @@ spring:
     loadbalancer:
       retry:
         enabled: false
+    inetutils:
+      timeout-seconds: 10

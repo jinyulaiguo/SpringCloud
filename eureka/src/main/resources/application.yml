@@ -1,14 +1,14 @@
 server:
-  port: 8080
+  port: 8081
 
 eureka:
   instance:
     hostname: localhost
   client:
     #     声明是否将自己的信息注册到 Eureka 服务器上
-    register-With-Eureka: false
+    registerWithEureka: true
     #     是否到 Eureka 服务器中抓取注册信息
-    fetch-Registry: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://@eureka.user.name@:@eureka.user.password@@${eureka.instance.hostname}:${server.port}/eureka/
 
@@ -20,3 +20,4 @@ spring:
     user:
       name: @eureka.user.name@
       password: @eureka.user.password@
+      roles: SUPERUSER
