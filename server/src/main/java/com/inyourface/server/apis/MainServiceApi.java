@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(name = "server-service", contextId = "MainServiceApi")
 public interface MainServiceApi {
     @RequestMapping("/main/getArgs")
-    public String get(String name);
+    public String getArgs(String name);
 }

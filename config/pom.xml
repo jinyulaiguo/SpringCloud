@@ -9,19 +9,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.inyourface</groupId>
-    <artifactId>web</artifactId>
+    <artifactId>config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>web</name>
+    <name>config</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
-        <java.version>1。8</java.version>
+        <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 
         <eureka.user.name>admin</eureka.user.name>
         <eureka.user.password>admin</eureka.user.password>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -29,32 +27,19 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>com.inyourface</groupId>
-            <artifactId>server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -76,9 +61,7 @@
         </plugins>
         <resources>
             <resource>
-                <!--指定resources插件处理哪个目录下的资源文件-->
                 <directory>src/main/resources</directory>
-                <!--打开资源过滤功能-->
                 <filtering>true</filtering>
             </resource>
         </resources>
