@@ -13,6 +13,6 @@ public class MainController {
 
     @RequestMapping("/getArgs")
     public String get(String args) {
-        return mainService.getAgrs(args);
+        return mainService.getArgs(args);
     }
 }

@@ -2,5 +2,5 @@ package com.inyourface.server.services;
 
 public interface MainService {
 
-    public String getAgrs(String args);
+    public String getArgs(String args);
 }
