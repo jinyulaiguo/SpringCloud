@@ -10,7 +10,7 @@ eureka:
     #     是否到 Eureka 服务器中抓取注册信息
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://@eureka.user.name@:@eureka.user.password@@localhost:8091/eureka/,http://@eureka.user.name@:@eureka.user.password@@localhost:8092/eureka/,http://@eureka.user.name@:@eureka.user.password@@localhost:8093/eureka/
+      defaultZone: http://localhost-8091:8091/eureka/,http://localhost-8092:8092/eureka/,http://localhost-8093:8093/eureka/
 
 
 spring:

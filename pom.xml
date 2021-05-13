@@ -28,9 +28,9 @@
                 <version>3.8.1</version>
                 <configuration>
                     <!-- 源代码使用的JDK版本 -->
-                    <source>15</source>
+                    <source>14</source>
                     <!-- 需要生成的目标class文件的编译版本 -->
-                    <target>15</target>
+                    <target>14</target>
                     <!-- 字符集编码 -->
                     <encoding>UTF-8</encoding>
                     <!-- 跳过测试 -->
