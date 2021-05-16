@@ -6,7 +6,7 @@ Eureka客户端在启动时，首先会创建一个心跳的定时任务，定�
 
 ### 服务端如何保存客户端服务信息？
 
-客户端通过Jregister()方法将服务实例信息发送到服务端，在register方法中，将服务实例信息InstanceInfo注册到了register变量中，它其实就是一个ConcurrentHashMap。
+客户端通过register()方法将服务实例信息发送到服务端，在register方法中，将服务实例信息InstanceInfo注册到了register变量中，它其实就是一个ConcurrentHashMap。
 
 ### 客户端如何拉取服务端已保存的服务信息
 

@@ -1,6 +1,6 @@
 # Eureka
 
-**Eureka是一个服务治理组件，管理服务之间的调用信息，类似于中介，分为服务端和客户端，服务端的角色是注册中心，客户端是微服务，分为提供者和消费者**
+**Eureka是一个SpringCloud服务治理组件，管理服务之间的调用信息，类似于中介，分为服务端和客户端，服务端的角色是注册中心，客户端是微服务，分为提供者和消费者**
 
 ## 1.Eureka Server
 
@@ -91,16 +91,12 @@ spring:
 
 ```java
 @SpringBootApplication
-@RestController
-public class Application {
-
-    @RequestMapping("/")
-    public String home() {
-        return "Hello world";
-    }
+@EnableDiscoveryClient
+@EnableFeignClients
+public class ServerApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(Application.class).web(true).run(args);
+        SpringApplication.run(ServerApplication.class, args);
     }
 
 }
@@ -123,7 +119,7 @@ eureka.instance.lease-expiration-duration-in-seconds=90
 
 
 ```
-#关闭自我保护模式（默认开启） 一分钟之内超过85%的客户端服务不可用，则不再清除客户端服务
+#关闭自我保护模式（默认开启） 一分钟之内超过85%(可配置)的客户端服务不可用，则不再清除客户端服务
 eureka.server.enable-self-preservation=false
 #失效服务间隔（默认60秒） 每隔60秒清除一次不可用客户端服务
 eureka.server.eviction-interval-timer-in-ms=6000
@@ -204,12 +200,14 @@ public class HealthStatusService implements HealthIndicator{
 ### 测试用的Controller
 
 ```java
+public class Health{
 	@GetMapping("/health")
 	public String health(@RequestParam("status") Boolean status) {
 		
 		healthStatusSrv.setStatus(status);
 		return healthStatusSrv.getStatus();
 	}
+}
 ```
 
 
