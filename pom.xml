@@ -11,11 +11,10 @@
 
     <modules>
         <module>eureka</module>
-        <module>server</module>
-        <module>web</module>
         <module>zuul</module>
         <module>config</module>
         <module>common</module>
+        <module>ribbon/server-provider01</module>
     </modules>
 
     <build>
