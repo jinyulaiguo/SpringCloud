@@ -41,7 +41,32 @@ replicateToPeers方法字面意思是同步或者复制到同事（即其他对�
 一般实现负载均衡，会有两个选择，客户端负载均衡(进程式负载均衡)和服务端的负载均衡(集中式负载均衡)
 
 * Nginx是服务器端负载均衡，负载均衡的策略算法是在服务器端实现的。
-![img.png](common/images/img.png)
+![img.png](common/images/img01.png)
 
 * Ribbon是客户端负载均衡，负载均衡算法是由调用者本身维护的
 ![img.png](common/images/img02.png)
+  
+### Ribbon是如何实现失败重试的？
+```yaml
+spring:
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true #开启重试机制
+ribbon:
+   ReadTimeout: 6000
+   ConnectTimeout: 6000
+   MaxAutoRetries: 1
+   MaxAutoRetriesNextServer: 2
+
+#服务名
+server-provider:
+  ribbon:
+    ConnectTimeout: 250 #单位ms,请求连接超时时间
+    ReadTimeout: 1000 #单位ms,请求处理的超时时间
+    OkToRetryOnAllOperations: true #对所有操作请求都进行重试
+    MaxAutoRetriesNextServer: 2 #切换实例的重试次数
+    MaxAutoRetries: 1 #对当前实例的重试次数
+```
+
+### Ribbon与Feign的区别是什么？

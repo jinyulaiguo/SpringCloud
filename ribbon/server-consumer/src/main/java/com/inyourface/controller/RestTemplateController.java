@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/template")
 public class RestTemplateController {
     @Autowired
+
     private RestTemplate restTemplate;
 
     @GetMapping("/getName")
